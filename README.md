@@ -22,3 +22,11 @@ Course_3 will assist you explore the full structure of realized transformers in 
 [BitNet: Scaling 1-bit Transformers for Large Language Models](https://arxiv.org/abs/2310.11453)
 
 []()
+
+
+## Homework 
+Your homework is run the code in course_3. I set a trap inside the code. Your target will be:
+1. successfully run the code.
+2. successfully train the model. (loss will drop by training.)
+3. be able to replace the training materials.
+4. modify the model.
