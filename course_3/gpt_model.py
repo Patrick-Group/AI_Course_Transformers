@@ -36,6 +36,8 @@ class SinusoidPE(nn.Module):  # position embedding函数，实例化一个positi
         self.register_buffer('sinusoid_pe', pe)  # 我们的position embedding是不参与训练的，所以这里可以将其注册到buffer
         # 使得后续计算更加快速，并节省内存空间
 
+
+    # <cls> <eos> <pad>
     def forward(self, x):
         return self.sinusoid_pe[:, :x.shape[1], :] # 在构造函数init里已经实现了position embedding，所以这里仅仅
         # 把构造的函数return即可
@@ -109,10 +111,10 @@ class Block(nn.Module):
         self.ffn = FeedFoward(config)
 
     def forward(self, x):
-        x = self.ln1(x)
-        x = x + self.attn(x)
-        x = self.ln2(x)
-        x = x + self.ffn(x)
+        x = x + self.attn(self.ln1(x))
+        # x = x + self.attn(x)
+        x =  self.ffn(self.ln2(x))
+        # x = x + self.ffn(x)
         return x
 
 
