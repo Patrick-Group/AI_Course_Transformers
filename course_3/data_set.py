@@ -49,7 +49,7 @@ def get_batch(data):
     return x, y
 
 def test_samples():
-    train_data = np.memmap(os.path.join("./", 'train.dat'), dtype=np.int32, mode='r')
+    train_data = np.memmap(os.path.join("../materials", 'train.dat'), dtype=np.int32, mode='r')
     x, y = get_batch(train_data)
 
     model_file = "bird_shooter.model"
@@ -65,6 +65,6 @@ def test_samples():
 
 
 if __name__ == '__main__':
-    train_model("bird_shooter.txt", "bird_shooter")
-    gen_dataset("bird_shooter.txt", "bird_shooter.model")
+    train_model("../materials/bird_couple.txt", "bird_couple")
+    gen_dataset("../materials/bird_couple.txt", "bird_couple.model")
     # test_samples()
