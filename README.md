@@ -24,9 +24,18 @@ Course_3 will assist you explore the full structure of realized transformers in 
 []()
 
 
-## Homework 
+## Week2 Homework 
 Your homework is run the code in course_3. I set a trap inside the code. Your target will be:
 1. successfully run the code.
 2. successfully train the model. (loss will drop by training.)
 3. be able to replace the training materials.
 4. modify the model.
+
+## Week3 Homework 
+Now you have the full version runable code, do some hand adjustment and see how these adjustments effect Hardware.
+Adjust the following config|structure of transformers model:
+1. number of heads
+2. transformer iterations
+3. context length
+4. embeddings
+5. quantization (pending)
