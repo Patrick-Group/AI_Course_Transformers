@@ -20,10 +20,29 @@ class MNIST(Dataset):
         return self.img_convert(img) / 255.0, label
 
 
+class MNIST_Test(Dataset):
+    def __init__(self, is_train=False):
+        super().__init__()
+        self.dataset = torchvision.datasets.MNIST('.\\mnist_test\\', train=is_train, download=True)
+        self.img_convert = Compose([
+            PILToTensor(),
+        ])
+
+    def __len__(self):
+        return len(self.dataset)
+
+    # Normalization
+    def __getitem__(self, item):
+        img, label = self.dataset[item]
+        return self.img_convert(img) / 255.0, label
+
+
+
+
 # 手写数字
 if __name__ == '__main__':
     import matplotlib.pyplot as plt
-
+    data_test = MNIST_Test()
     data = MNIST()
     img, label = data[1]
     print(label)

@@ -1,21 +1,19 @@
-from dataset import MNIST
+from dataset import MNIST_Test
 import matplotlib.pyplot as plt
 import torch
 from Vit import ViT
 import torch.nn.functional as F
 
-DEVICE='cuda' if torch.cuda.is_available() else 'cpu'   # 设备
+DEVICE = 'cuda' if torch.cuda.is_available() else 'cpu'   # 选择计算设备
 
-dataset=MNIST() # 数据集
+dataset = MNIST_Test()   # 实例化数据集
 
-model=ViT().to(DEVICE) # 模型
+model = ViT().to(DEVICE)     # 实例化模型
 model.load_state_dict(torch.load('.\\model.pt'))
 
-model.eval()    # 预测模式
+model.eval()
 
-'''
-对图片分类
-'''
+#   图片分类任务推理
 count = 1000
 correct = 0
 for i in range(count):
