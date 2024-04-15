@@ -16,10 +16,10 @@ config = Config()
 
 
 class ViT(nn.Module):
-    def __init__(self, config:Config=config):
+    def __init__(self, config: Config = config):
         super().__init__()
         self.patch_size = config.patch_size
-        self.patch_count =config.patch_count
+        self.patch_count = config.patch_count
         #
         self.conv = nn.Conv2d(in_channels=1, out_channels=self.patch_size ** 2, kernel_size=self.patch_size, padding=0,
                               stride=self.patch_size)

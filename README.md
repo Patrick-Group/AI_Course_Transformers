@@ -39,3 +39,7 @@ Adjust the following config|structure of transformers model:
 3. context length
 4. embeddings
 5. quantization (pending)
+
+
+## Week4 Content
+A new hand-made ViT model with MNIST datasets is ready to use. Feel free to use it and learn the structure of ViT. There is no homework left.
