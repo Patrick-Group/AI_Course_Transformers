@@ -7,22 +7,22 @@ import os
 
 if __name__=='__main__':
     # 如果使用Mac并有MPS，这里改成MPS
-    DEVICE = 'cuda' if torch.cuda.is_available() else 'cpu'  # 设备
+    DEVICE = 'cuda' if torch.cuda.is_available() else 'cpu'  # 选择对应的设备
 
-    dataset = MNIST()  # 载入数据集
-    model = ViT().to(DEVICE)  # 实例化模型
+    dataset = MNIST()           # 载入数据集
+    model = ViT().to(DEVICE)    # 实例化模型
 
     try:  # 加载模型
         model.load_state_dict(torch.load('.model.pt'))
     except:
         pass
 
-    optimizer = torch.optim.Adam(model.parameters(), lr=1e-3) # 选择优化器
+    optimizer = torch.optim.Adam(model.parameters(), lr=1e-3)   # 选择优化器
 
     EPOCH = 30
-    BATCH_SIZE = 64  # 从batch内选出10个不一样的数字
+    BATCH_SIZE = 64     # 从batch内选出10个不一样的数字
 
-    dataloader = DataLoader(dataset, batch_size=BATCH_SIZE, shuffle=True, num_workers=10, persistent_workers=True)  # 数据加载器
+    dataloader = DataLoader(dataset, batch_size=BATCH_SIZE, shuffle=True, num_workers=10, persistent_workers=True)      # 数据加载器
 
     iter_count = 0
     for epoch in range(EPOCH):

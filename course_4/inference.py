@@ -6,9 +6,9 @@ import torch.nn.functional as F
 
 DEVICE = 'cuda' if torch.cuda.is_available() else 'cpu'   # 选择计算设备
 
-dataset = MNIST_Test()   # 实例化数据集
+dataset = MNIST_Test()          # 实例化数据集
 
-model = ViT().to(DEVICE)     # 实例化模型
+model = ViT().to(DEVICE)        # 实例化模型
 model.load_state_dict(torch.load('.\\model.pt'))
 
 model.eval()
